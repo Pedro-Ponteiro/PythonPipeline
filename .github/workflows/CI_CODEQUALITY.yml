@@ -1,0 +1,39 @@
+name: CI_CodeQualityEnforcer
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  code-quality-enforcer:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        python-version: [3.9]
+
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Dockerfile Validator Enforcer
+        uses: ghe-actions/dockerfile-validator@v1
+
+      - name: Wheel Installation
+        run: |
+          python${{ matrix.python-version }} -m pip install wheel
+
+      - name: Flake8 and WorkFlow packages Installation
+        run: |
+          python${{ matrix.python-version }} -m pip install -r WorkFlow_requirements.txt
+
+      - name: Flake8 Enforcer
+        run: |
+          flake8 --exclude=venv/* --ignore=ANN101,W503 --max-complexity=10 \
+          --max-line-length=88 --max-function-length=20 --max-parameters-amount=5 .

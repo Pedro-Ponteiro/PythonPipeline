@@ -1,0 +1,20 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "SynthWave '84",
+    "git.autofetch": true,
+    "python.formatting.provider": "black",
+    "editor.minimap.enabled": false,
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "git.confirmSync": false,
+    "python.formatting.blackArgs": [
+        "--line-length=88"
+    ],
+    "workbench.startupEditor": "none",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false
+}

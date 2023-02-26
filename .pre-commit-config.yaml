@@ -1,0 +1,36 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-yaml
+      - id: check-json
+
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: ["--profile=black"]
+
+  - repo: https://github.com/psf/black
+    rev: 23.1.0
+    hooks:
+      - id: black
+        args: ["--line-length=88"]
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+        args: ["--max-line-length=88"]
+
+  - repo: https://github.com/yunojuno/pre-commit-xenon
+    rev: v0.1
+    hooks:
+      - id: xenon
+        args: ["--max-average=A", "--max-modules=C", "--max-absolute=B"]
+
+  - repo: https://github.com/AleksaC/hadolint-py
+    rev: v2.12.0.2
+    hooks:
+      - id: hadolint
+        args: ["--ignore=DL4006", "--ignore=DL3015", "--ignore=DL3008"]
