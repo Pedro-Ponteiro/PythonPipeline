@@ -6,6 +6,8 @@ from datetime import datetime
 from multiprocessing.pool import ThreadPool
 from typing import Any, Callable, Dict, List, Tuple
 
+# TODO: add support for containers and execution at other computers
+
 
 class Step:
     def __init__(
