@@ -10,6 +10,7 @@ def my_other_func(previous_phase_result: Dict[str, Any]):
 
 
 def my_func(x: int) -> int:
+    # TODO: does the pipeline work if this has kwargs and args?
     return print
 
 
