@@ -69,7 +69,7 @@ class Phase:
             self.nr_threads = len(steps)
         else:
             self.nr_threads = nr_threads
-        # TODO: ADD parallel method asynchrounous
+        # TODO: ADD asynchrounous parallel method
 
         self.parallel_method_map: Dict[str, Callable[[], Any]] = {
             "multiprocessing": self.execute_multiprocess,
@@ -210,6 +210,6 @@ class PipeLine:
             f.write(phase_parallel_method_name + "\n")
             f.write("-" * 20 + "\n")
             for step_name, step_result in phase_result.items():
-                f.write(f"{step_name}\n")
-                f.write(f"{step_result}\n\n")
+                f.write(f"Step Name:\n{step_name}\n")
+                f.write(f"Step Result:\n{step_result}\n\n")
                 f.write("-" * 20 + "\n\n")
