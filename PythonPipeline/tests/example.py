@@ -1,6 +1,6 @@
 from typing import Any, Dict
 
-from Pipeline import Phase, PipeLine, Step
+from PythonPipeline.Pipeline import Phase, PipeLine, Step
 
 
 def my_other_func(previous_phase_result: Dict[str, Any]):
